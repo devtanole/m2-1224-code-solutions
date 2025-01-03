@@ -1,0 +1,16 @@
+.wrapper {
+  width: 250px;
+  text-align: center;
+}
+
+.wrapper .face {
+  height: 200px;
+  width: 150px;
+  margin: 0 auto;
+  border: 2px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  justify-content: center;
+}
