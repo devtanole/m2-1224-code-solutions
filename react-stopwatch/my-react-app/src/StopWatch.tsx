@@ -4,7 +4,7 @@ import { FaPlay, FaPause } from 'react-icons/fa';
 
 export function StopWatch() {
   const [time, setTime] = useState(0);
-  const [pause, setPause] = useState(true);
+  const [pause, setPause] = useState(false);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout>(null);
 
   const toggleTimer = () => {
