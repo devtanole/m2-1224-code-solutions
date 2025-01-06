@@ -12,7 +12,9 @@ export function SearchBar({ quotes }: ListProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(e.target.value);
 
-  const filteredQuotes = quotes.filter((quote) => quote.includes(search));
+  const filteredQuotes = quotes.filter((quote) =>
+    quote.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
