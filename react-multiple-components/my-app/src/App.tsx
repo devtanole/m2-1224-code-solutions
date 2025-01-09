@@ -1,18 +1,19 @@
 import './App.css';
-import { Wrap } from './RotatingBanner';
+import { RotatingBanner } from './RotatingBanner';
+
+const items = [
+  'Aardvark',
+  'Bengal',
+  'Caterpillar',
+  'Dromedary',
+  'Elephant',
+  'Ferret',
+];
 
 function App() {
-  const items = [
-    'Aardvark',
-    'Bengal',
-    'Caterpillar',
-    'Dromedary',
-    'Elephant',
-    'Ferret',
-  ];
   return (
     <>
-      <Wrap items={items} />
+      <RotatingBanner items={items} />
     </>
   );
 }

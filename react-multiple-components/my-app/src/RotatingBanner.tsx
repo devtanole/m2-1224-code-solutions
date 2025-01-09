@@ -1,20 +1,20 @@
-interface BannerProps {
-  items: string[];
-}
+import { Banner } from './Banner';
+import { NavButton } from './NavButton';
+import { Indicators } from './Indicators';
 
-export function Wrap({ items }: BannerProps) {
+type BannerProps = {
+  items: string[];
+};
+
+export function RotatingBanner({ items }: BannerProps) {
   return (
     <>
-      <div className="rotate">
-        <h2>Banner</h2>
-      </div>
-      <div className="content">
-        <ul>
-          {items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      <Banner name={items[4]} />
+      <NavButton label="Prev" />
+      <br></br>
+      <Indicators count={items.length} />
+      <br></br>
+      <NavButton label="Next" />
     </>
   );
 }

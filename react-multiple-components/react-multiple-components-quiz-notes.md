@@ -20,6 +20,8 @@ Answer the following questions in the provided markdown file before turning in t
 
 All student notes should be written here.
 
+prev/next button component, banner,
+
 How to write `Code Examples` in markdown
 
 for JS:
