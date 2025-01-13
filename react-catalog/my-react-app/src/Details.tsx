@@ -1,7 +1,7 @@
 import { type Product } from '../lib/data';
 import { useEffect, useState } from 'react';
 import { readProduct } from '../lib/read';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { toDollars } from '../lib/to-dollars';
 
 export function Details() {
@@ -9,6 +9,7 @@ export function Details() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
   const { productId } = useParams();
+  const nav = useNavigate();
 
   useEffect(() => {
     async function loadProduct(productId: number) {
@@ -36,6 +37,10 @@ export function Details() {
       </div>
     );
   }
+  const handleClick = () => {
+    alert(`Added ${name} to cart`);
+    nav('/');
+  };
   const { name, price, imageUrl, longDescription, shortDescription } = product;
   return (
     <div className="container">
@@ -68,9 +73,7 @@ export function Details() {
         </div>
       </div>
       <div className="flex justify-start mt-4 px-4 mt-4">
-        <button
-          onClick={() => alert(`added ${name} to cart`)}
-          className="px-4 py-2 rounded">
+        <button onClick={handleClick} className="px-4 py-2 rounded">
           Add to cart
         </button>
       </div>
