@@ -1,5 +1,4 @@
 import { Header } from './Header';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Catalog } from './Catalog';
 import { Details } from './Details';
