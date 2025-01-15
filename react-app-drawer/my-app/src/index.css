@@ -1,0 +1,153 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #fff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: navy;
+  height: 75px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  padding: 0 10px;
+}
+
+.menu-bars {
+  font-size: 2rem;
+  background: none;
+  color: gray;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.nav-menu {
+  background-color: white;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  transition: left 300ms ease;
+  z-index: 5;
+}
+
+.nav-menu.active {
+  left: 0;
+}
+
+.nav-menu-items {
+  width: 90%;
+  padding: 20px;
+}
+
+.nav-menu-items li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  transition: margin-top 300ms ease, background-color 300ms ease;
+  margin-top: 20px;
+}
+
+.icon-style {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.item-name {
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: margin-top 300ms ease, padding 300ms ease;
+}
+
+.item-name:hover {
+  background-color: #747bff;
+  color: #fff;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.nav-menu-items li:hover {
+  background-color: #f0f0f0;
+}
