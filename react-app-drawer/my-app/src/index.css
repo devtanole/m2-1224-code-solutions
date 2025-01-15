@@ -78,6 +78,7 @@ button:focus-visible {
 .navbar {
   background-color: navy;
   height: 75px;
+  width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -98,25 +99,23 @@ button:focus-visible {
 }
 
 .nav-menu {
-  background-color: white;
-  width: 250px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: -250px;
-  transition: left 300ms ease;
-  z-index: 5;
+  width: 4rem;
+  min-height: 100vh;
+  padding-top: 1rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.45);
+  transition: width 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .nav-menu.active {
-  left: 0;
+  width: 16rem;
 }
 
 .nav-menu-items {
-  width: 90%;
-  padding: 20px;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 1rem;
 }
 
 .nav-menu-items li {

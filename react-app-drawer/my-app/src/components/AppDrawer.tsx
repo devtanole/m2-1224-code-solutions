@@ -12,18 +12,19 @@ type Props = {
   menuItems: MenuItem[];
 };
 export function AppDrawer({ menuItems }: Props) {
-  const [sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(true);
 
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <>
-      <div className="container">
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaBars onClick={showSidebar} />
-          </Link>
-        </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+      <div className="navbar" />
+      <div className="flex">
+        <div className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <FaBars
+            onClick={showSidebar}
+            className="nav-menu-items"
+            size="1.5rem"
+          />
           <ul className="nav-menu-items">
             <li className="nav-bar-toggle">
               <Link to="#" className="menu-bars"></Link>
@@ -37,14 +38,18 @@ export function AppDrawer({ menuItems }: Props) {
                       alt={item.name}
                       className="icon-style"
                     />
-                    <span className="item-name icon-style">{item.name}</span>
+                    <span className="item-name icon-style">
+                      {sidebar && item.name}
+                    </span>
                   </Link>
                 </li>
               );
             })}
           </ul>
-        </nav>
-        <Outlet />
+        </div>
+        <div className="grow">
+          <Outlet />
+        </div>
       </div>
     </>
   );
