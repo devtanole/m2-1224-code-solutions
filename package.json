@@ -27,5 +27,8 @@
     "stylelint-config-recommended": "^11.0.0",
     "stylelint-config-standard": "^32.0.0",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
   }
 }
