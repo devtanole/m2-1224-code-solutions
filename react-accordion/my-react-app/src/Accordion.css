@@ -1,0 +1,14 @@
+.topic-card {
+  background-color: lightgray;
+  width: 500px;
+  text-align: left;
+  border: 2px solid;
+}
+
+.topic-content {
+  background-color: white;
+}
+
+h2 {
+  margin-left: 30px;
+}
