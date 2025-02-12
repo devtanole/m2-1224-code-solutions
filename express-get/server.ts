@@ -23,8 +23,8 @@ app.get('/api/countries', async (req, res, next) => {
           group by "c"."countryId";
     `;
     const result = await db.query(sql);
-    const total = result.rows;
-    if (!total || total.length === 0) {
+    const total = result.rows[0];
+    if (!total) {
       throw new ClientError(404, `not found`);
     }
     res.json(total);
