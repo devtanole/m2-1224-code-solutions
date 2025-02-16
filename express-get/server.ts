@@ -39,6 +39,10 @@ app.get('/api/cities/:cityId', async (req, res, next) => {
     if (cityId === undefined) {
       throw new ClientError(400, `cityId required`);
     }
+
+    if (!Number.isInteger(+cityId)) {
+      throw new ClientError(400, `Non-integer actorId: ${cityId}`);
+    }
     const sql = `
     select "ci"."cityId",
           "ci"."name",
