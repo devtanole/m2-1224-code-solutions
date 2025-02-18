@@ -36,7 +36,26 @@ export function Todos() {
   }, []);
 
   /* Implement addTodo to add a new todo. Hints are at the bottom of the file. */
-  async function addTodo(newTodo: UnsavedTodo) {}
+  async function addTodo(newTodo: UnsavedTodo) {
+    try {
+      const res = await fetch('/api/todos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTodo),
+      });
+      if (!res.ok) {
+        throw new Error('Error adding todo');
+      }
+
+      const addTodo: Todo = await res.json();
+
+      setTodos((prevTodos) => [...prevTodos, addTodo]);
+    } catch (e) {
+      setError(e);
+    }
+  }
 
   /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
   async function toggleCompleted(todo: Todo) {}
