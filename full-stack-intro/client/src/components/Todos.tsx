@@ -58,7 +58,28 @@ export function Todos() {
   }
 
   /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
-  async function toggleCompleted(todo: Todo) {}
+  async function toggleCompleted(todoId: Todo) {
+    try {
+      const toggleTodo = todos.find((todo) => todo.todoId === todoId.todoId);
+
+      if (!toggleTodo) {
+        throw new Error('Todo not found');
+      }
+
+      const updatedTodo = {
+        ...toggleTodo,
+        isCompleted: !toggleTodo.isCompleted,
+      };
+
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.todoId === updatedTodo.todoId ? updatedTodo : todo
+        )
+      );
+    } catch (e) {
+      setError(e);
+    }
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
