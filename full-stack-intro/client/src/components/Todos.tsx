@@ -58,35 +58,22 @@ export function Todos() {
   }
 
   /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
-  async function toggleCompleted(todoId: Todo) {
+  async function toggleCompleted(todo: Todo) {
+    todo.isCompleted = !todo.isCompleted;
     try {
-      const res = await fetch(`/api/todos/${todoId}`, {
+      const res = await fetch(`/api/todos/${todo.todoId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(todoId),
+        body: JSON.stringify(todo),
       });
-      if (!res.ok) {
-        throw new Error('Error toggling todo');
-      }
-      const toggleTodo = todos.find((todo) => todo.todoId === todoId.todoId);
-
-      if (!toggleTodo) {
-        throw new Error('Todo not found');
-      }
-
-      const updatedTodo = {
-        ...toggleTodo,
-        isCompleted: !toggleTodo.isCompleted,
-      };
-
-      setTodos((prevTodos) =>
-        prevTodos.map((todo) =>
-          todo.todoId === updatedTodo.todoId ? updatedTodo : todo
-        )
+      const updatedTodo = (await res.json()) as Todo;
+      setTodos((prev) =>
+        prev.map((old) => (old.todoId === todo.todoId ? updatedTodo : old))
       );
     } catch (e) {
+      console.error(e);
       setError(e);
     }
   }
