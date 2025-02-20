@@ -60,6 +60,16 @@ export function Todos() {
   /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
   async function toggleCompleted(todoId: Todo) {
     try {
+      const res = await fetch(`/api/todos/${todoId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(todoId),
+      });
+      if (!res.ok) {
+        throw new Error('Error toggling todo');
+      }
       const toggleTodo = todos.find((todo) => todo.todoId === todoId.todoId);
 
       if (!toggleTodo) {
