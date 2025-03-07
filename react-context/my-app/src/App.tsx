@@ -4,24 +4,21 @@ import { About } from './pages/About';
 import { Catalog } from './pages/Catalog';
 import { NotFound } from './pages/NotFound';
 import { ProductDetails } from './pages/ProductDetails';
-import { CartContext, CartValue } from './components/CartContext';
+import { CartContext } from './components/CartContext';
 import { useState } from 'react';
 import { Product } from './lib';
 
 export function App() {
   const [cart, setCart] = useState<Product[]>([]);
 
-  const addToCart = (product: Product) => {
-    setCart((prevCart) => [...prevCart, product]);
+  const addToCart = (product: Product): void => {
+    setCart([...cart, product]);
   };
 
-  const CartContextValues: CartValue = {
-    cart,
-    addToCart,
-  };
+  const cartContextValues = { cart, addToCart };
 
   return (
-    <CartContext.Provider value={CartContextValues}>
+    <CartContext.Provider value={cartContextValues}>
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Catalog />} />

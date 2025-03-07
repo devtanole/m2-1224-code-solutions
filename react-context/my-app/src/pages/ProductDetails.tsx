@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { readProduct, type Product, toDollars } from '../lib';
+import { useCart } from '../components/useCart';
 
 export function ProductDetails() {
   const { productId } = useParams();
+  const { addToCart } = useCart();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product>();
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +31,7 @@ export function ProductDetails() {
   function handleAddToCart() {
     if (!product) throw new Error('Should never happen');
     alert(`Added ${product?.name} to cart`);
+    addToCart(product);
     navigate('/');
   }
 

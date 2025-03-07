@@ -1,14 +1,12 @@
 import { Product } from '../lib';
 import { createContext } from 'react';
 
-export type CartValue = {
+export type CartContextValues = {
   cart: Product[];
   addToCart: (product: Product) => void;
 };
 
-const defaultCartValue: CartValue = {
+export const CartContext = createContext<CartContextValues>({
   cart: [],
   addToCart: () => undefined,
-};
-
-export const CartContext = createContext<CartValue>(defaultCartValue);
+});
